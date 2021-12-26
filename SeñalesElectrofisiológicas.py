@@ -1,4 +1,5 @@
 import sys
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -14,15 +15,15 @@ class Principal(QMainWindow):
         super().__init__()
         
         #Directory
-        self.myPath = 'D:/Lucas/EscuelaL/Universidad Tecnológica Nacional/Becas/Señales Electrofisiológicas/Software/Python/'
-
+        #self.myPath = 'D:/Lucas/EscuelaL/Universidad Tecnológica Nacional/Becas/Señales Electrofisiológicas/Software/Python/'
+        self.myPath = os.getcwd(self)
 
         #Ventana
         self.resize(500, 500)
         self.move(500, 100)        
 
         self.title = 'UTN FRBA - Señeles Electrofisológicas'
-        self.iconName = QIcon(self.myPath + 'Imágenes/UTN FRBA icon.png')
+        self.iconName = QIcon(os.path.join(self.myPath, 'Imágenes/UTN FRBA icon.png')
         
 
         #Botones de Comandos
@@ -80,7 +81,7 @@ class Principal(QMainWindow):
         ##Boton
         self.buttonExplorer = QPushButton(self)
     
-        self.buttonExplorer.setIcon(QIcon(self.myPath + 'Imágenes/Carpeta Icon1.png'))
+        self.buttonExplorer.setIcon(QIcon(os.path.join(self.myPath, 'Imágenes/Carpeta Icon1.png'))
         
         self.buttonExplorer.move(260, 18)
         self.buttonExplorer.resize(25, 25)
