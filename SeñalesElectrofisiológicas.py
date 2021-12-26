@@ -1,6 +1,6 @@
 import sys
 import numpy as np
-import matplotlib.pyplot as plt
+import matpltlib.pyplot as plt
 
 from datetime import datetime
 from PyQt5.QtWidgets import (QTextEdit, QApplication, QPushButton,
