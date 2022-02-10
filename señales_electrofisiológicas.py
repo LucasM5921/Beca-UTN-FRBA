@@ -1,7 +1,6 @@
 """
-GUI sensor
+GUI Sensor
 """
-
 import sys
 import os
 import datetime
@@ -11,13 +10,14 @@ from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 
 
-class Principal(QtWidgets.QMainWindow()):
+class Principal(QtWidgets.QMainWindow):
+    """
+    Ventana Principal
+    """
     def __init__(self):
         super().__init__()
 
         #Directory
-        #self.myPath = '''D:/Lucas/EscuelaL/Universidad Tecnológica Nacional/
-        #                Becas/Señales Electrofisiológicas/Software/Python/'''
         self.my_path = os.getcwd()
 
         #Ventana
@@ -25,7 +25,7 @@ class Principal(QtWidgets.QMainWindow()):
         self.move(500, 100)
 
         self.title = 'UTN FRBA - Señeles Electrofisológicas'
-        self.icon_name = QtGui.QIcon(os.path.join(self.myPath, 'Imágenes/UTN FRBA icon.png'))
+        self.icon_name = QtGui.QIcon(os.path.join(self.my_path, 'Imágenes/UTN FRBA icon.png'))
 
 
         #Botones de Comandos
@@ -107,6 +107,9 @@ class Principal(QtWidgets.QMainWindow()):
         self.show()
 
     def abrir_exp_arch(self, estado):
+        """
+        Abrir Explorador de Archivos
+        """
         print(estado)
 
         self.campo_txt_info.insertPlainText('Explorador de archivos abierto\n')
@@ -119,24 +122,36 @@ class Principal(QtWidgets.QMainWindow()):
 
 
     def bot_pres_conn(self,estado):
+        """
+        ´Conectar sensor
+        """
         print(estado)
 
         self.campo_txt_info.insertPlainText('Conectado\n')
 
 
     def bot_pres_desconn(self,estado):
+        """
+        Desconectar Sensor
+        """
         print(estado)
 
         self.campo_txt_info.insertPlainText('Desconectado\n')
 
 
     def bot_pres_reset(self,estado):
+        """
+        Resetear Sensor
+        """
         print(estado)
 
         self.campo_txt_info.insertPlainText('Reseteado\n')
 
 
     def bot_pres_register(self,estado):
+        """
+        Registrar Datos
+        """
         print(estado)
 
         self.campo_txt_info.insertPlainText('Registrando\n')
@@ -157,24 +172,31 @@ class Principal(QtWidgets.QMainWindow()):
         plt.show()
 
         #Guardar datos
-        # np.save('Lucas.npy' , Señal)
-
-        np.save('Lucas_{:%Y-%m-%d_%H-%M-%S}.npy'.format(datetime.datetime.now()), y_signal)
+        np.save(f'Lucas_{datetime.datetime.now():%Y-%m-%d_%H-%M-%S}.npy', y_signal)
 
 
     def bot_pres_record(self,estado):
+        """
+        Grabar Datos
+        """
         print(estado)
 
         self.campo_txt_info.insertPlainText('Grabando\n')
 
 
     def bot_pres_stop(self,estado):
+        """
+        Detener Proceso
+        """
         print(estado)
 
         self.campo_txt_info.insertPlainText('Proceso parado\n')
 
 
     def bot_pres_out(self,estado):
+        """
+        Salir de Ventana Principal
+        """
         print(estado)
 
         self.close()
